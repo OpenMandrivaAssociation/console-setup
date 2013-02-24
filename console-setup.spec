@@ -1,10 +1,9 @@
-
 Name:		console-setup
 Version:	1.87
-Release:	2%{?dist}
+Release:	3
 Summary:	Tools for configuring the console using X Window System key maps
 
-Group:		Applications/System
+Group:		Terminals
 # For a breakdown of the licensing, see COPYRIGHT, copyright, copyright.fonts and copyright.xkb
 License:	GPLv2+ and MIT and Public Domain
 URL:		http://packages.debian.org/cs/sid/console-setup
@@ -30,21 +29,19 @@ supports several languages that would be otherwise unsupported on the console
 
 %prep
 %setup -q
-%patch0 -p1 -b .paths
-%patch1 -p1 -b .fsf-address
-
+%patch0 -p1 -b .paths~
+%patch1 -p1 -b .fsf-address~
 
 %build
-make build-linux
+%make build-linux
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT install-linux
+make prefix="%{buildroot}" install-linux
 # we don't want another set of keyboard descriptions, we want to use descriptions from
 # xkeyboard-config (require it?), so removing it
 # or maybe have these from tarball it in optional subpackage?
-rm -rf $RPM_BUILD_ROOT/etc/console-setup
+rm -rf %{buildroot}/etc/console-setup
 
 
 %files
@@ -56,7 +53,6 @@ rm -rf $RPM_BUILD_ROOT/etc/console-setup
 %{_datadir}/consolefonts
 %{_datadir}/consoletrans
 %{_mandir}/*/*
-
 
 %changelog
 * Wed Feb 13 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.87-2
