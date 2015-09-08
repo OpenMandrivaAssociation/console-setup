@@ -1,16 +1,17 @@
 Summary:	Tools for configuring the console using X Window System key maps
 Name:		console-setup
-Version:	1.104
-Release:	4
+Version:	1.132
+Release:	1
 Group:		Terminals
 # For a breakdown of the licensing, see COPYRIGHT, copyright, copyright.fonts and copyright.xkb
 License:	GPLv2+ and MIT and Public Domain
 Url:		http://packages.debian.org/cs/sid/console-setup
-Source0:	http://ftp.de.debian.org/debian/pool/main/c/%{name}/%{name}_%{version}.tar.gz
+Source0:	http://ftp.de.debian.org/debian/pool/main/c/%{name}/%{name}_%{version}.tar.xz
 # Fixes installing paths to Fedora style
 Patch0:		console-setup-1.76-paths.patch
 # Fixes FSF address, sent to upstream
 Patch1:		console-setup-1.76-fsf-address.patch
+BuildRequires:	perl(encoding)
 BuildArch:	noarch
 Requires:	kbd
 # require 'xkeyboard-config' to have X Window keyboard descriptions?
