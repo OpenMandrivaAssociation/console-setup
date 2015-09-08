@@ -11,7 +11,6 @@ Source0:	http://ftp.de.debian.org/debian/pool/main/c/%{name}/%{name}_%{version}.
 Patch0:		console-setup-1.76-paths.patch
 # Fixes FSF address, sent to upstream
 Patch1:		console-setup-1.76-fsf-address.patch
-BuildRequires:	perl(encoding)
 BuildArch:	noarch
 Requires:	kbd
 # require 'xkeyboard-config' to have X Window keyboard descriptions?
