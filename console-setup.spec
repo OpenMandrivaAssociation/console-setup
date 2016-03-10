@@ -23,7 +23,7 @@ supports several languages that would be otherwise unsupported on the console
 (such as Armenian, Georgian, Lao and Thai).
 
 %prep
-%setup -q
+%setup -qn %{name}
 %apply_patches
 
 %build
