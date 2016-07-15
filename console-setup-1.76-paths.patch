@@ -1,16 +1,16 @@
-diff -up console-setup/Makefile.orig console-setup/Makefile
---- console-setup/Makefile.orig	2012-06-19 16:24:46.063272458 +0200
-+++ console-setup/Makefile	2012-06-20 13:11:09.926247002 +0200
-@@ -2,7 +2,7 @@ prefix = /usr/local
+diff -up console-setup-1.143/Makefile.orig console-setup-1.143/Makefile
+--- console-setup-1.143/Makefile.orig	2016-05-24 09:43:13.424382839 +0200
++++ console-setup-1.143/Makefile	2016-05-24 09:45:10.350994606 +0200
+@@ -14,7 +14,7 @@ prefix := /usr/local
  # etcdir must be either /etc or
- etcdir = $(prefix)/etc
- bootprefix = $(patsubst %/usr,%/,$(prefix:%/=%))
--mandir = $(prefix)/share/man
+ etcdir := $(prefix)/etc
+ bootprefix := $(patsubst %/usr,%/,$(prefix:%/=%))
+-mandir := $(prefix)/share/man
 +mandir = $(prefix)/usr/share/man
  
- SHELL = /bin/sh
+ acmfiles := $(wildcard $./acm/*.acm)
  
-@@ -36,8 +36,8 @@ build-all: build-linux build-freebsd bui
+@@ -26,8 +26,8 @@ build-common: gzipped-acmfiles
  
  .PHONY: install-common
  install-common: build-common
@@ -21,7 +21,7 @@ diff -up console-setup/Makefile.orig console-setup/Makefile
  	install -d $(etcdir)/default
  	install -m 644 config/keyboard $(etcdir)/default/
  	install -m 644 config/console-setup $(etcdir)/default/
-@@ -49,10 +49,10 @@ install-common: build-common
+@@ -39,10 +39,10 @@ install-common: build-common
  
  .PHONY: install-common-linux
  install-common-linux: build-linux
@@ -36,7 +36,7 @@ diff -up console-setup/Makefile.orig console-setup/Makefile
  	install -d $(etcdir)/console-setup
  	install -m 644 Keyboard/compose.*.inc $(etcdir)/console-setup/
  	install -m 644 Keyboard/remap.inc $(etcdir)/console-setup/
-@@ -77,8 +77,8 @@ install-ckbcomp:
+@@ -67,8 +67,8 @@ install-ckbcomp:
  		mkdir -p $(etcdir)/console-setup \
  		&& cp -r Keyboard/ckb/ $(etcdir)/console-setup/ckb; \
  	fi
@@ -47,9 +47,9 @@ diff -up console-setup/Makefile.orig console-setup/Makefile
  	install -d $(mandir)/man1/
  	install -m 644 man/ckbcomp.1 $(mandir)/man1/
  
-diff -up console-setup/man/ckbcomp.1.orig console-setup/man/ckbcomp.1
---- console-setup/man/ckbcomp.1.orig	2012-06-26 13:03:52.177823914 +0200
-+++ console-setup/man/ckbcomp.1	2012-06-26 14:21:00.460672366 +0200
+diff -up console-setup-1.143/man/ckbcomp.1.orig console-setup-1.143/man/ckbcomp.1
+--- console-setup-1.143/man/ckbcomp.1.orig	2011-04-06 03:01:33.000000000 +0200
++++ console-setup-1.143/man/ckbcomp.1	2016-05-24 09:47:15.360674275 +0200
 @@ -46,7 +46,7 @@ Print a usage message and exit.
  .BI -charmap\  charmap
  The encoding to use for the output keymap.  There should be an
@@ -83,10 +83,10 @@ diff -up console-setup/man/ckbcomp.1.orig console-setup/man/ckbcomp.1
  .br
  .I /usr/share/X11/xkb
  .br
-diff -up console-setup/man/console-setup.5.orig console-setup/man/console-setup.5
---- console-setup/man/console-setup.5.orig	2012-06-26 13:10:37.076260103 +0200
-+++ console-setup/man/console-setup.5	2012-06-26 14:19:44.635215971 +0200
-@@ -378,16 +378,16 @@ Completely covered by the following font
+diff -up console-setup-1.143/man/console-setup.5.orig console-setup-1.143/man/console-setup.5
+--- console-setup-1.143/man/console-setup.5.orig	2016-05-19 05:01:09.000000000 +0200
++++ console-setup-1.143/man/console-setup.5	2016-05-24 09:47:15.361674281 +0200
+@@ -403,16 +403,16 @@ Completely covered by the following font
  The standard location of the
  .B console-setup
  configuration file is
@@ -107,10 +107,10 @@ diff -up console-setup/man/console-setup.5.orig console-setup/man/console-setup.
  
  .SH NOTES
  The aim of the Terminus font is to reduce the eyes-fatigue when one
-diff -up console-setup/man/keyboard.5.orig console-setup/man/keyboard.5
---- console-setup/man/keyboard.5.orig	2012-06-26 13:09:26.323834480 +0200
-+++ console-setup/man/keyboard.5	2012-06-26 13:34:33.243901584 +0200
-@@ -152,12 +152,12 @@ on FreeBSD.
+diff -up console-setup-1.143/man/keyboard.5.orig console-setup-1.143/man/keyboard.5
+--- console-setup-1.143/man/keyboard.5.orig	2016-03-03 05:01:16.000000000 +0100
++++ console-setup-1.143/man/keyboard.5	2016-05-24 09:47:15.361674281 +0200
+@@ -154,12 +154,12 @@ on FreeBSD.
  The standard location of the
  .B keyboard
  file is
@@ -126,9 +126,9 @@ diff -up console-setup/man/keyboard.5.orig console-setup/man/keyboard.5
  you will find several keymaps that can be used with the variable
  .BR KMAP .
  
-diff -up console-setup/man/setupcon.1.orig console-setup/man/setupcon.1
---- console-setup/man/setupcon.1.orig	2012-06-26 13:00:14.192512373 +0200
-+++ console-setup/man/setupcon.1	2012-06-26 13:03:27.247673862 +0200
+diff -up console-setup-1.143/man/setupcon.1.orig console-setup-1.143/man/setupcon.1
+--- console-setup-1.143/man/setupcon.1.orig	2016-03-03 05:01:16.000000000 +0100
++++ console-setup-1.143/man/setupcon.1	2016-05-24 09:47:15.361674281 +0200
 @@ -22,11 +22,11 @@ the console.  Most of the time you invok
  without arguments.  The keyboard configuration is specified in
  .I ~/.keyboard
@@ -143,7 +143,7 @@ diff -up console-setup/man/setupcon.1.orig console-setup/man/setupcon.1
  Consult
  .BR keyboard (5)
  and
-@@ -131,13 +131,13 @@ for the default configuration.
+@@ -162,13 +162,13 @@ Display usage information.
  .br
  .I ~/.keyboard
  .br
