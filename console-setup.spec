@@ -1,6 +1,6 @@
 Summary:	Tools for configuring the console using X Window System key maps
 Name:		console-setup
-Version:	1.146
+Version:	1.185
 Release:	1
 Group:		Terminals
 # For a breakdown of the licensing, see COPYRIGHT, copyright, copyright.fonts and copyright.xkb
@@ -23,11 +23,10 @@ supports several languages that would be otherwise unsupported on the console
 (such as Armenian, Georgian, Lao and Thai).
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
-%make build-linux
+%make_build build-linux
 
 %install
 make prefix="%{buildroot}" install-linux
