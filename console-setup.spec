@@ -1,6 +1,6 @@
 Summary:	Tools for configuring the console using X Window System key maps
 Name:		console-setup
-Version:	1.191
+Version:	1.193
 Release:	1
 Group:		Terminals
 # For a breakdown of the licensing, see COPYRIGHT, copyright, copyright.fonts and copyright.xkb
