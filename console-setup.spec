@@ -14,7 +14,7 @@ Patch1:		console-setup-1.76-fsf-address.patch
 BuildRequires:  perl
 BuildRequires:  perl(encoding)
 BuildArch:	noarch
-Requires:	kbd >= 2.2.0
+Requires:	kbd
 # require 'xkeyboard-config' to have X Window keyboard descriptions?
 
 %description
