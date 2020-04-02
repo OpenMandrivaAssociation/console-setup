@@ -1,6 +1,6 @@
 Summary:	Tools for configuring the console using X Window System key maps
 Name:		console-setup
-Version:	1.194
+Version:	1.195
 Release:	1
 Group:		Terminals
 # For a breakdown of the licensing, see COPYRIGHT, copyright, copyright.fonts and copyright.xkb
@@ -14,7 +14,7 @@ Patch1:		console-setup-1.76-fsf-address.patch
 BuildRequires:  perl
 BuildRequires:  perl(encoding)
 BuildArch:	noarch
-Requires:	kbd
+Requires:	kbd >= 2.2.0
 # require 'xkeyboard-config' to have X Window keyboard descriptions?
 
 %description
