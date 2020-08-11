@@ -26,7 +26,7 @@ supports several languages that would be otherwise unsupported on the console
 (such as Armenian, Georgian, Lao and Thai).
 
 %prep
-%autosetup -p1 -n %{name}
+%autosetup -p1
 
 %build
 %make_build build-linux
