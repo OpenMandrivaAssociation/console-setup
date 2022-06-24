@@ -40,6 +40,10 @@ make prefix="%{buildroot}" install-linux
 # or maybe have these from tarball it in optional subpackage?
 rm -rf %{buildroot}/etc/console-setup
 
+%pretrans -p <lua>
+-- Used to be symlinks to /lib/kbd/console{fonts,trans}
+posix.unlink("%{_datadir}/consolefonts")
+posix.unlink("%{_datadir}/consoletrans")
 
 %files
 %doc README COPYRIGHT CHANGES copyright.fonts copyright.xkb Fonts/copyright
