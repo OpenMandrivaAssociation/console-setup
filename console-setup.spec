@@ -1,8 +1,9 @@
-%global optflags %{optflags} -Oz
+# (tpg) optimize it a bit
+%global optflags %{optflags} -Oz --rtlib=compiler-rt
 
 Summary:	Tools for configuring the console using X Window System key maps
 Name:		console-setup
-Version:	1.208
+Version:	1.218
 Release:	1
 Group:		Terminals
 # For a breakdown of the licensing, see COPYRIGHT, copyright, copyright.fonts and copyright.xkb
@@ -15,6 +16,7 @@ Patch0:		console-setup-1.76-paths.patch
 Patch1:		console-setup-1.76-fsf-address.patch
 BuildRequires:	perl
 BuildRequires:	perl(encoding)
+BuildRequires:	perl(open)
 BuildRequires:	pigz
 BuildArch:	noarch
 Requires:	kbd
