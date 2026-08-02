@@ -1,6 +1,7 @@
-diff -up console-setup-1.207/Makefile.orig console-setup-1.207/Makefile
---- console-setup-1.207/Makefile.orig	2021-11-08 09:46:06.508441480 +0100
-+++ console-setup-1.207/Makefile	2021-11-08 09:48:57.683728853 +0100
+diff --git a/Makefile b/Makefile
+index 5c1012c..58f74a1 100644
+--- a/Makefile
++++ b/Makefile
 @@ -14,7 +14,7 @@ prefix := /usr/local
  # etcdir must be either /etc or
  etcdir := $(prefix)/etc
@@ -36,7 +37,7 @@ diff -up console-setup-1.207/Makefile.orig console-setup-1.207/Makefile
  	install -d $(etcdir)/console-setup
  	install -m 644 Keyboard/compose.*.inc $(etcdir)/console-setup/
  	install -m 644 Keyboard/remap.inc $(etcdir)/console-setup/
-@@ -67,8 +67,8 @@ install-ckbcomp:
+@@ -53,8 +53,8 @@ install-ckbcomp:
  		mkdir -p $(etcdir)/console-setup \
  		&& cp -r Keyboard/ckb/ $(etcdir)/console-setup/ckb; \
  	fi
@@ -47,9 +48,10 @@ diff -up console-setup-1.207/Makefile.orig console-setup-1.207/Makefile
  	install -d $(mandir)/man1/
  	install -m 644 man/ckbcomp.1 $(mandir)/man1/
  
-diff -up console-setup-1.207/man/ckbcomp.1.orig console-setup-1.207/man/ckbcomp.1
---- console-setup-1.207/man/ckbcomp.1.orig	2011-07-03 19:59:48.000000000 +0200
-+++ console-setup-1.207/man/ckbcomp.1	2021-11-08 09:51:49.271263086 +0100
+diff --git a/man/ckbcomp.1 b/man/ckbcomp.1
+index 0f325eb..f59639b 100644
+--- a/man/ckbcomp.1
++++ b/man/ckbcomp.1
 @@ -46,7 +46,7 @@ Print a usage message and exit.
  .BI -charmap\  charmap
  The encoding to use for the output keymap.  There should be an
@@ -59,7 +61,7 @@ diff -up console-setup-1.207/man/ckbcomp.1.orig console-setup-1.207/man/ckbcomp.
  Definitions of the following charmaps are provided:
  .nh
  .BR ARMSCII-8 ,
-@@ -86,8 +86,9 @@ for files included by the keymap descrip
+@@ -86,8 +86,9 @@ for files included by the keymap description.  This option may be used
  multiple times.  If a file can not be found in any of the specified
  directories, it will be searched also in some other standard
  locations, such as
@@ -71,7 +73,7 @@ diff -up console-setup-1.207/man/ckbcomp.1.orig console-setup-1.207/man/ckbcomp.
  and
  .IR /etc/X11/xkb
  
-@@ -167,9 +168,9 @@ Specifies the layout variant used to cho
+@@ -167,9 +168,9 @@ Specifies the layout variant used to choose the component names.
  Adds an option used to choose component names.
  
  .SH FILES
@@ -83,10 +85,11 @@ diff -up console-setup-1.207/man/ckbcomp.1.orig console-setup-1.207/man/ckbcomp.
  .br
  .I /usr/share/X11/xkb
  .br
-diff -up console-setup-1.207/man/console-setup.5.orig console-setup-1.207/man/console-setup.5
---- console-setup-1.207/man/console-setup.5.orig	2019-05-30 00:09:36.000000000 +0200
-+++ console-setup-1.207/man/console-setup.5	2021-11-08 09:53:08.829837149 +0100
-@@ -403,16 +403,16 @@ Completely covered by the following font
+diff --git a/man/console-setup.5 b/man/console-setup.5
+index 57dff16..724f0e9 100644
+--- a/man/console-setup.5
++++ b/man/console-setup.5
+@@ -404,16 +404,16 @@ Completely covered by the following font faces:
  The standard location of the
  .B console-setup
  configuration file is
@@ -107,9 +110,10 @@ diff -up console-setup-1.207/man/console-setup.5.orig console-setup-1.207/man/co
  
  .SH NOTES
  The aim of the Terminus font is to reduce the eyes-fatigue when one
-diff -up console-setup-1.207/man/keyboard.5.orig console-setup-1.207/man/keyboard.5
---- console-setup-1.207/man/keyboard.5.orig	2021-11-08 09:53:21.769232920 +0100
-+++ console-setup-1.207/man/keyboard.5	2021-11-08 09:59:12.477111340 +0100
+diff --git a/man/keyboard.5 b/man/keyboard.5
+index 2d692f5..89512d5 100644
+--- a/man/keyboard.5
++++ b/man/keyboard.5
 @@ -154,12 +154,12 @@ on FreeBSD.
  The standard location of the
  .B keyboard
@@ -126,10 +130,11 @@ diff -up console-setup-1.207/man/keyboard.5.orig console-setup-1.207/man/keyboar
  you will find several keymaps that can be used with the variable
  .BR KMAP .
  
-diff -up console-setup-1.207/man/setupcon.1.orig console-setup-1.207/man/setupcon.1
---- console-setup-1.207/man/setupcon.1.orig	2021-11-08 09:54:23.983055071 +0100
-+++ console-setup-1.207/man/setupcon.1	2021-11-08 09:56:00.187636963 +0100
-@@ -22,11 +22,11 @@ the console.  Most of the time you invok
+diff --git a/man/setupcon.1 b/man/setupcon.1
+index 8d759df..0d64d00 100644
+--- a/man/setupcon.1
++++ b/man/setupcon.1
+@@ -22,11 +22,11 @@ the console.  Most of the time you invoke
  without arguments.  The keyboard configuration is specified in
  .I ~/.keyboard
  or
